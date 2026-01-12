@@ -1,0 +1,91 @@
+# Education Tutoring System Configuration
+
+# vLLM Service Configuration
+vllm:
+  # API endpoint for the vLLM server
+  api_base: "http://117.50.214.73:8000/v1"
+  
+  # API key for authentication (set to null if not required)
+  api_key: "vllm"
+  
+  # Model name to use
+  model_name: "Qwen3-30B-A3B-GPTQ-Int4"
+  
+  # Temperature parameter for generation (0.0 - 1.0)
+  temperature: 0.7
+  
+  # Maximum tokens to generate
+  max_tokens: 2000
+  
+  # Request timeout in seconds
+  timeout: 60
+
+# MCP (Model Context Protocol) Configuration
+mcp:
+  # Enable/disable Playwright integration
+  playwright_enabled: true
+  
+  # GeekTime website URL
+  geektime_url: "https://time.geekbang.org/"
+  
+  # Run browser in headless mode
+  browser_headless: true
+  
+  # Browser timeout in milliseconds
+  browser_timeout: 30000
+
+# Web Search Configuration
+web_search:
+  # Enable/disable web search tool
+  enabled: true
+  
+  # Search provider (duckduckgo, google, etc.)
+  provider: "duckduckgo"
+  
+  # Maximum number of search results
+  max_results: 5
+
+# System Configuration
+system:
+  # Database path for persistence
+  database_path: "./data/tutoring_system.db"
+  
+  # Maximum loop count to prevent infinite loops
+  max_loop_count: 10
+  
+  # Enable human-in-the-loop interactions
+  enable_human_input: true
+  
+  # Session timeout in minutes
+  session_timeout: 30
+
+# Logging Configuration
+logging:
+  # Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+  level: "INFO"
+  
+  # Log format
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+  # Log file path (set to null for console only)
+  file: "./logs/tutoring_system.log"
+  
+  # Maximum log file size in MB
+  max_file_size: 10
+  
+  # Number of backup log files to keep
+  backup_count: 5
+
+# Agent Configuration
+agents:
+  coordinator:
+    temperature: 0.7
+    max_tokens: 1500
+  
+  course_advisor:
+    temperature: 0.6
+    max_tokens: 2000
+  
+  learning_planner:
+    temperature: 0.5
+    max_tokens: 2500
